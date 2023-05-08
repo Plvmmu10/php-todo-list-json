@@ -1,3 +1,17 @@
-h1 {
-    color: red;
+body {
+    background-color: #212529;
+}
+
+.container {
+    background-color: #2b3035;
+    color: white;
+}
+
+.complete {
+    text-decoration: line-through;
+    background-color: green !important;
+}
+
+li {
+    cursor: pointer;
 }
