@@ -5,15 +5,27 @@ createApp({
         return {
             title: 'Todo List',
             urlAPI: './server.php',
-            todoList: []
+            todoList: [],
+            newTodo: '',
         }
     },
     methods: {
         createList() {
             axios.get(this.urlAPI).then((res) => {
                 this.todoList = res.data;
-                console.log(todoList);
+                console.log(this.todoList)
             })
+        },
+        addTodo() {
+            const data = {
+                todoItem: this.newTodo
+            }
+
+            axios.post(this.urlAPI, data, { headers: { 'Content-Type': 'multipart/form-data' } }).then((res) => {
+                todoItem = '';
+            })
+
+            console.log(data)
         }
     },
     mounted() {
