@@ -1,12 +1,17 @@
 <?php
 
 $content = file_get_contents('data/data.json');
-echo $content;
 
-// var_dump($content);
+$apiArray = json_decode($content, true);
 
+if (isset($_POST['todoItem'])) {
+    $todoItem = $_POST['todoItem'];
+    array_push($apiArray, $todoItem);
 
-// $apiArray = json_decode($testo, true);
+    file_put_contents('data/data.json', json_encode($apiArray));
+}
 
 
 header('Content-Type: application/json');
+
+echo json_encode($apiArray);
