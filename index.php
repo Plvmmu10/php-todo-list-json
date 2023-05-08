@@ -37,7 +37,7 @@
                         <li v-for="(item, index) in todoList" :key="index"
                             class="list-group-item bg-transparent text-white border-0 fw-bold">
 
-                            <span class="me-3">{{item}}</span>
+                            <span class="me-3">{{item.name}}</span>
 
                             <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
                         </li>

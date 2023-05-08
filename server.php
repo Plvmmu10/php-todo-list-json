@@ -8,10 +8,12 @@ if (isset($_POST['todoItem'])) {
     $todoItem = $_POST['todoItem'];
     array_push($apiArray, $todoItem);
 
-    file_put_contents('data/data.json', json_encode($apiArray));
+    if (file_put_contents('data/data.json', json_encode($apiArray, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK)) === false) {
+        $apiArray = [];
+    }
 }
 
 
 header('Content-Type: application/json');
 
-echo json_encode($apiArray);
+echo json_encode($apiArray, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_NUMERIC_CHECK);
