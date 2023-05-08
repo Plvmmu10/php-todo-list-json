@@ -18,7 +18,34 @@
 
 <body>
     <div id="app">
-        <h1>{{title}}</h1>
+        <div class="container my-5">
+            <div class="text-center p-2">
+                <h1>{{title}}</h1>
+            </div>
+
+
+            <div class="row py-5">
+                <div class="col-6">
+                    <h3>Aggiungi una cosa da fare</h3>
+                    <input type="text" class="me-4" v-model="newTodo">
+                    <button class="btn btn-warning" @click="addTodo">Invia</button>
+                </div>
+
+                <div class="col-6 d-flex flex-column align-items-center">
+                    <h3>La tua lista:</h3>
+                    <ul class="list-group">
+                        <li v-for="(item, index) in todoList" :key="index"
+                            class="list-group-item bg-transparent text-white border-0 fw-bold">
+
+                            <span class="me-3">{{item}}</span>
+
+                            <button class="btn btn-danger"><i class="fa-solid fa-xmark"></i></button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <script src="./js/script.js"></script>
